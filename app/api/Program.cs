@@ -1,8 +1,20 @@
+using api.Models;
+using api.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Configure<MongoSettings>(
+    builder.Configuration.GetSection("Mongo")
+);
 
-builder.Services.AddControllers();
+builder.Services.AddSingleton<BooksService>();
+
+
+builder.Services.AddControllers()
+                .AddJsonOptions(
+                    options => options.JsonSerializerOptions.PropertyNamingPolicy = null
+                );
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
