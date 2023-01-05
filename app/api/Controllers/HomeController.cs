@@ -4,11 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace api.Controllers;
 
 
+[Tags("Root")]
 [ApiController]
 [Route("/")]
 public class HomeController : ControllerBase
 {
-    [HttpGet(Name = "Home")]
+    [HttpGet(Name = "Root")]
     public HomeEntity Get()
     {
         return new HomeEntity
@@ -17,4 +18,5 @@ public class HomeController : ControllerBase
             Message = "Up"
         };
     }
+    
 }
