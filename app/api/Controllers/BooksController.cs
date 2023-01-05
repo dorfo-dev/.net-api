@@ -6,7 +6,7 @@ using api.Services;
 namespace api.Controllers;
 
 [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/books")]
     public class BooksController : ControllerBase
     {
         private readonly BooksService _booksService;
